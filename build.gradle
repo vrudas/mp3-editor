@@ -1,0 +1,30 @@
+group 'mp3-file-editor'
+version ''
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org:jaudiotagger:2.0.3'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+
+    testCompile 'org.testng:testng:6.9.10'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.mp3editor.MP3Editor'
+    }
+
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
