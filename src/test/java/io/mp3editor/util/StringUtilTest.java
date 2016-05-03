@@ -12,7 +12,7 @@ public class StringUtilTest {
     @Test
     public void testCleanFileName() {
         String dirtyFileName = "/:\\*\\?\"<>\\|\\\\";
-        String cleanFileName = StringUtil.cleanFileName(dirtyFileName);
+        String cleanFileName = StringUtil.cleanString(dirtyFileName);
         assertEquals(cleanFileName, EMPTY_STRING);
     }
 }

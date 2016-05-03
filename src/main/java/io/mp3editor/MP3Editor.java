@@ -12,9 +12,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.function.Function;
 
-import static io.mp3editor.util.StringUtil.cleanFileName;
+import static io.mp3editor.util.StringUtil.cleanString;
 
 /**
  * Class for simply modifications of {@link MP3Editor#FILE_EXTENSION} files contained
@@ -39,23 +40,25 @@ public class MP3Editor {
      * @throws IOException
      */
     private void editFiles(Path directory) throws IOException {
-        Function<Path, MP3File> pathToMP3File = path -> {
+        Function<Path, Optional<MP3File>> pathToMP3File = path -> {
             try {
-                return (MP3File) READER.read(path.toFile());
+                return Optional.ofNullable((MP3File) READER.read(path.toFile()));
             } catch (Exception e) {
                 logger.error("Can't extract mp3 file", e);
             }
-            return null;
+            return Optional.empty();
         };
 
         Files.walk(directory)
                 .filter(path -> Files.isRegularFile(path))
                 .map(pathToMP3File)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
                 .forEach(mp3File -> {
                     AbstractID3v2Tag tag = mp3File.getID3v2Tag();
-                    String artist = tag.getFirst(FieldKey.ARTIST);
-                    String title = tag.getFirst(FieldKey.TITLE);
-                    String genre = tag.getFirst(FieldKey.GENRE);
+                    String artist = cleanString(tag.getFirst(FieldKey.ARTIST));
+                    String title = cleanString(tag.getFirst(FieldKey.TITLE));
+                    String genre = cleanString(tag.getFirst(FieldKey.GENRE));
 
                     createGenreFolder(directory, genre);
 
@@ -109,7 +112,7 @@ public class MP3Editor {
      */
     String makeFileName(String artist, String title) {
         String fileName = artist + " - " + title;
-        return cleanFileName(fileName);
+        return cleanString(fileName);
     }
 
     /**

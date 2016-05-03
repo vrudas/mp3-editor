@@ -13,7 +13,7 @@ public class StringUtil {
      * @param fileName that need to be cleaned
      * @return cleaned {@code fileName}
      */
-    public static String cleanFileName(String fileName) {
+    public static String cleanString(String fileName) {
         return fileName.replaceAll(ILLEGAL_FILENAME_CHARACTERS, "");
     }
 }
