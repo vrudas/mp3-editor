@@ -8,12 +8,12 @@ public class StringUtil {
     private static final String ILLEGAL_FILENAME_CHARACTERS = "[/:\\*\\?\"<>\\|\\\\]";
 
     /**
-     * Clean fileName removing from it {@link StringUtil#ILLEGAL_FILENAME_CHARACTERS}
+     * Clean str removing from it {@link StringUtil#ILLEGAL_FILENAME_CHARACTERS}
      *
-     * @param fileName that need to be cleaned
-     * @return cleaned {@code fileName}
+     * @param str that need to be cleaned
+     * @return cleaned {@code str}
      */
-    public static String cleanString(String fileName) {
-        return fileName.replaceAll(ILLEGAL_FILENAME_CHARACTERS, "");
+    public static String cleanString(String str) {
+        return str.replaceAll(ILLEGAL_FILENAME_CHARACTERS, "");
     }
 }
