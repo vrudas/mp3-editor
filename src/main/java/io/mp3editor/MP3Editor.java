@@ -27,6 +27,7 @@ public class MP3Editor {
     private static final MP3FileReader READER = new MP3FileReader();
     private static final Path ROOT_DIRECTORY = Paths.get(".");
     private static final String FILE_EXTENSION = ".mp3";
+    private static final int MAX_DEPTH = 1;
 
     public static void main(String[] args) throws IOException {
         MP3Editor editor = new MP3Editor();
@@ -49,7 +50,7 @@ public class MP3Editor {
             return Optional.empty();
         };
 
-        Files.walk(directory)
+        Files.walk(directory, MAX_DEPTH)
             .filter(path -> Files.isRegularFile(path))
             .map(pathToMP3File)
             .filter(Optional::isPresent)
