@@ -50,23 +50,23 @@ public class MP3Editor {
         };
 
         Files.walk(directory)
-                .filter(path -> Files.isRegularFile(path))
-                .map(pathToMP3File)
-                .filter(Optional::isPresent)
-                .map(Optional::get)
-                .forEach(mp3File -> {
-                    AbstractID3v2Tag tag = mp3File.getID3v2Tag();
-                    String artist = cleanString(tag.getFirst(FieldKey.ARTIST));
-                    String title = cleanString(tag.getFirst(FieldKey.TITLE));
-                    String genre = cleanString(tag.getFirst(FieldKey.GENRE));
+            .filter(path -> Files.isRegularFile(path))
+            .map(pathToMP3File)
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .forEach(mp3File -> {
+                AbstractID3v2Tag tag = mp3File.getID3v2Tag();
+                String artist = cleanString(tag.getFirst(FieldKey.ARTIST));
+                String title = cleanString(tag.getFirst(FieldKey.TITLE));
+                String genre = cleanString(tag.getFirst(FieldKey.GENRE));
 
-                    createGenreFolder(directory, genre);
+                createGenreFolder(directory, genre);
 
-                    String newFileName = makeFileName(artist, title);
-                    Path genreDirPath = Paths.get(String.valueOf(directory), genre);
+                String newFileName = makeFileName(artist, title);
+                Path genreDirPath = Paths.get(String.valueOf(directory), genre);
 
-                    moveFile(mp3File.getFile(), genreDirPath, newFileName, FILE_EXTENSION);
-                });
+                moveFile(mp3File.getFile(), genreDirPath, newFileName, FILE_EXTENSION);
+            });
     }
 
     /**
