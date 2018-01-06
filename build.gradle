@@ -1,7 +1,20 @@
 group 'mp3-file-editor'
 version ''
 
+buildscript {
+    ext.kotlin_version = '1.2.10'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 apply plugin: 'java'
+apply plugin: "kotlin"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -11,10 +24,13 @@ repositories {
 }
 
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
     compile 'org:jaudiotagger:2.0.3'
     compile 'ch.qos.logback:logback-classic:1.1.7'
 
     testCompile 'org.testng:testng:6.9.10'
+    testCompile "org.jetbrains.kotlin:kotlin-test"
 }
 
 jar {

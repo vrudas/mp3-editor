@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 import static io.mp3editor.util.StringUtil.cleanString;
 
@@ -50,24 +51,25 @@ public class MP3Editor {
             return Optional.empty();
         };
 
-        Files.walk(directory, MAX_DEPTH)
-            .filter(path -> Files.isRegularFile(path))
-            .map(pathToMP3File)
-            .filter(Optional::isPresent)
-            .map(Optional::get)
-            .forEach(mp3File -> {
-                AbstractID3v2Tag tag = mp3File.getID3v2Tag();
-                String artist = cleanString(tag.getFirst(FieldKey.ARTIST));
-                String title = cleanString(tag.getFirst(FieldKey.TITLE));
-                String genre = cleanString(tag.getFirst(FieldKey.GENRE));
+        try (Stream<Path> files = Files.walk(directory, MAX_DEPTH)) {
+            files.filter(Files::isRegularFile)
+                .map(pathToMP3File)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .forEach(mp3File -> {
+                    AbstractID3v2Tag tag = mp3File.getID3v2Tag();
+                    String artist = cleanString(tag.getFirst(FieldKey.ARTIST));
+                    String title = cleanString(tag.getFirst(FieldKey.TITLE));
+                    String genre = cleanString(tag.getFirst(FieldKey.GENRE));
 
-                createGenreFolder(directory, genre);
+                    createGenreFolder(directory, genre);
 
-                String newFileName = makeFileName(artist, title);
-                Path genreDirPath = Paths.get(String.valueOf(directory), genre);
+                    String newFileName = makeFileName(artist, title);
+                    Path genreDirPath = Paths.get(String.valueOf(directory), genre);
 
-                moveFile(mp3File.getFile(), genreDirPath, newFileName, FILE_EXTENSION);
-            });
+                    moveFile(mp3File.getFile(), genreDirPath, newFileName, FILE_EXTENSION);
+                });
+        }
     }
 
     /**
