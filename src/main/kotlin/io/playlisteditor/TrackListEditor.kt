@@ -18,7 +18,7 @@ class TrackListEditor {
 
 data class Track(val number: Byte, val title: String, val artist: String) {
 
-    fun toTrackListString(): String = "${numberToString()} $artist - ${removeTrackTypeFromTitle()}".trim()
+    fun toTrackListString(): String = "00:00 ${numberToString()} $artist - ${removeTrackTypeFromTitle()}".trim()
 
     private fun numberToString() = if (number in 0..9) "0$number" else number.toString()
 
@@ -114,5 +114,27 @@ object TrackLists {
         17	You Got Me Rocking	Frontliner	150.00	11A	Q-Dance Hardstyle Top 40 2014-04	L4H	06:02	     	17
         18	Power Hour	Technoboy, Tuneboy & Isaac	150.00	01A	Victory Forever EP WEB	Hardstyle	03:39	     	18
         19	Broken	Evil Activities & Endymion Ft. E-Life	82.46	01A	Intents Festival 2011 Hardcore Edition WEB	Hardcore	05:19	     	19
+    """.trimIndent()
+
+    val EP04 = """
+        #	Track Title	Artist	BPM	Key	Album	Genre	Time	Rating	Comments
+        1	Secrets of Time	Adrenalize	150.00	11A	Secrets of Time	Techno	05:02	     	00
+        2	Keep It Up	Frontliner	150.00	01A	Fear FM Hardstyle Top 100 2012	Hardstyle	04:43	     	01
+        3	I'm Alive	Kodex feat. Steklo	150.00	03A	The First Impact EP	L4H	05:23	     	02
+        4	through the light (extended mix)	Dillytek	150.00	04A	Through The Light	Hardstyle	04:07	     	03
+        5	I See Stars	Wildstylez	150.00	05A		L4H	04:44	     	04
+        6	So High (Original Mix)	Noisecontrollers	150.00	06A	FearFM Hardstyle Top 40 March 2012	L4H	05:38	     	05
+        7	Rebel (Original Mix)	D-Block & S-Te-Fan	150.00	06A	Rebel WEB	L4H	05:14	     	06
+        8	We Can Escape (Intents Anthem 2012) (Original Mix)	Brennan Heart	150.00	06A	We Can Escape (Intents Anthem 2012) WEB	Hardstyle Anthem	05:04	     	07
+        9	Burn (Sub Zero Project Remix) (Extended Mix)	DJ Isaac	150.00	08A	Burn (Sub Zero Project Remix) WEB	Techno	04:55	     	08
+        10	Welcome (Extended Mix)	Hard Driver	150.00	09A	Welcome WEB	Techno	04:34	     	09
+        11	One	Kutski Vs Bioweapon	150.00	09A	Fear FM Hardstyle Top 40 2009-08	Hardstyle	06:22	     	10
+        12	The Tribe (2014 Mix) (Edit)	Aztech Ft. Nikkita	150.00	10A	We R Hardstyle Yearmix 2014 WEB	Techno	04:41	     	11
+        13	Odissea 2011	Zatox & The R3belz	150.00	11A	Odissea 2011 WEB	Hardstyle	05:00	     	12
+        14	The Groove	Da Tweekaz	150.00	11A	Fear FM Hardstyle Top 40 2011-11	Hardstyle	05:52	     	13
+        15	A Complexe Situation	Wildstylez	150.00	12A	In & Out	Techno	05:44	     	14
+        16	Mystical Expedition (Extended Mix)	Sound Rush	150.00	12A	Mystical Expedition	Techno	03:31	     	15
+        17	Whistle	Stuback	150.00	11B	Whistle / Soundwave WEB	Techno	06:05	     	16
+        18	Trapped in this World	Kasparov	82.28	01A	Keep Going WEB	Hardcore	06:06	     	17
     """.trimIndent()
 }
