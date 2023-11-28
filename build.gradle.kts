@@ -1,14 +1,10 @@
 plugins {
-    kotlin("jvm") version "1.9.20"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm")
+    id("com.github.johnrengelman.shadow")
 }
 
 group = "io.mp3editor"
 version = "1.0.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
