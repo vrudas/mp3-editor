@@ -12,12 +12,17 @@ dependencies {
     implementation("org:jaudiotagger:2.0.3")
     implementation("ch.qos.logback:logback-classic:1.2.10")
 
-    testImplementation("org.testng:testng:7.5")
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation(platform("org.junit:junit-bom:5.10.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
 }
 
 kotlin {
     jvmToolchain(21)
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 tasks.shadowJar {

@@ -1,26 +1,25 @@
 package io.mp3editor;
 
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Test
-public class MP3EditorTest {
+class MP3EditorTest {
     // TODO: 4/18/2016 IMPLEMENT TESTS
 
     private MP3Editor editor;
 
-    @BeforeSuite
+    @BeforeEach
     public void init() {
         editor = new MP3Editor();
     }
 
     @Test
-    public void testDeduplicateFileName() {
+    void testDeduplicateFileName() {
         String newFileName = "newFileName";
         String currentFileName = "fileName";
 
@@ -28,22 +27,22 @@ public class MP3EditorTest {
 
         String deduplicatedFileName = editor.deduplicateFileName(newFileName, currentFileName);
 
-        assertEquals(deduplicatedFileName, expectedFileName);
+        assertEquals(expectedFileName, deduplicatedFileName);
     }
 
     @Test
-    public void testMakeFileName() {
+    void testMakeFileName() {
         String firstPart = "first";
         String secondPart = "second";
         String expectedFileName = String.format("%s - %s", firstPart, secondPart);
 
         String fileName = editor.makeFileName(firstPart, secondPart);
 
-        assertEquals(fileName, expectedFileName);
+        assertEquals(expectedFileName, fileName);
     }
 
     @Test
-    public void testPrepareTargetPath() {
+    void testPrepareTargetPath() {
         String genreDir = "genre";
         String fileName = "fileName";
         String extension = ".extension";
@@ -52,6 +51,6 @@ public class MP3EditorTest {
 
         Path path = editor.prepareTargetPath(genreDir, fileName, extension);
 
-        assertEquals(path, expectedPath);
+        assertEquals(expectedPath, path);
     }
 }

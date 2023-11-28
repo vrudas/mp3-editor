@@ -4,10 +4,10 @@ import io.playlisteditor.SetTimeCounter.extractTimes
 import io.playlisteditor.SetTimeCounter.secondsBetween
 import io.playlisteditor.SetTimeCounter.toLocalTime
 import io.playlisteditor.SetTimeCounter.tracks
-import org.testng.annotations.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 import java.time.Duration
 import java.time.LocalTime
-import kotlin.test.assertEquals
 
 internal class SetTimeCounterTest {
 

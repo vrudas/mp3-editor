@@ -1,18 +1,18 @@
 package io.mp3editor.util;
 
-import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
-@Test
-public class StringUtilTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class StringUtilTest {
 
     private static final String EMPTY_STRING = "";
 
     @Test
-    public void testCleanFileName() {
+    void testCleanFileName() {
         String dirtyFileName = "/:\\*\\?\"<>\\|\\\\";
         String cleanFileName = StringUtil.cleanString(dirtyFileName);
-        assertEquals(cleanFileName, EMPTY_STRING);
+        assertEquals(EMPTY_STRING, cleanFileName);
     }
 }
