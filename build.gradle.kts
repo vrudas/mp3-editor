@@ -16,7 +16,7 @@ dependencies {
     implementation("org:jaudiotagger:2.0.3")
     implementation("ch.qos.logback:logback-classic:1.2.10")
 
-    testImplementation("org.testng:testng:7.5")
+    testImplementation("org.testng:testng:7.8.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
