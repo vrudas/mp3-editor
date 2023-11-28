@@ -3,7 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
-group = "mp3-file-editor"
+group = "io.mp3editor"
 version = "1.0.0-SNAPSHOT"
 
 repositories {
