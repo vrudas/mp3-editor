@@ -1,18 +1,16 @@
-package io.mp3editor.util;
+package io.mp3editor.util
 
+import io.mp3editor.util.StringUtil.cleanString
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StringUtilTest {
-
-    private static final String EMPTY_STRING = "";
-
     @Test
-    void testCleanFileName() {
-        String dirtyFileName = "/:\\*\\?\"<>\\|\\\\";
-        String cleanFileName = StringUtil.cleanString(dirtyFileName);
-        assertEquals(EMPTY_STRING, cleanFileName);
+    fun testCleanFileName() {
+        val dirtyFileName = "/:\\*\\?\"<>\\|\\\\"
+        val cleanFileName = cleanString(dirtyFileName)
+        assertEquals("", cleanFileName)
     }
+
 }

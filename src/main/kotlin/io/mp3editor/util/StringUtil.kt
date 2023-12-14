@@ -1,19 +1,19 @@
-package io.mp3editor.util;
+package io.mp3editor.util
 
 /**
  * Contains util methods for String manipulations
  */
-public class StringUtil {
-
-    private static final String ILLEGAL_FILENAME_CHARACTERS = "[/:\\*\\?\"<>\\|\\\\]";
+object StringUtil {
+    private const val ILLEGAL_FILENAME_CHARACTERS = "[/:\\*\\?\"<>\\|\\\\]"
 
     /**
-     * Clean str removing from it {@link StringUtil#ILLEGAL_FILENAME_CHARACTERS}
+     * Clean str removing from it [StringUtil.ILLEGAL_FILENAME_CHARACTERS]
      *
      * @param str that need to be cleaned
-     * @return cleaned {@code str}
+     * @return cleaned `str`
      */
-    public static String cleanString(String str) {
-        return str.replaceAll(ILLEGAL_FILENAME_CHARACTERS, "");
+    @JvmStatic
+    fun cleanString(str: String): String {
+        return str.replace(ILLEGAL_FILENAME_CHARACTERS.toRegex(), "")
     }
 }
