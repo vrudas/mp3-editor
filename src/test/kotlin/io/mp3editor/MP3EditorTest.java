@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MP3EditorTest {
     // TODO: 4/18/2016 IMPLEMENT TESTS
 
-    private MP3Editor editor;
+    private MP3EditorV2 editor;
 
     @BeforeEach
     public void init() {
-        editor = new MP3Editor();
+        editor = new MP3EditorV2();
     }
 
     @Test

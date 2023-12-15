@@ -27,7 +27,7 @@ tasks.test {
 
 tasks.shadowJar {
     manifest {
-        attributes["Main-Class"] = "io.mp3editor.MP3Editor"
+        attributes["Main-Class"] = "io.mp3editor.MP3EditorKt"
     }
 
     archiveClassifier = "app"
