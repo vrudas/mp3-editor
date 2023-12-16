@@ -1,6 +1,6 @@
 package io.playlisteditor
 
-fun main(args: Array<String>) {
+fun main() {
     val trackListEditor = TrackListEditor()
     println(trackListEditor.parseTrackList(TrackLists.EP02))
 }
@@ -28,7 +28,7 @@ data class Track(val number: Byte, val title: String, val artist: String) {
     private fun numberToString() = if (number in 0..9) "0$number" else number.toString()
 
     private fun removeTrackTypeFromTitle(): String {
-        val trackMixType = TrackMixType.values().firstOrNull {
+        val trackMixType = TrackMixType.entries.firstOrNull {
             title.contains(it.textValue, ignoreCase = true)
         }
 

@@ -82,7 +82,7 @@ class MP3EditorV2 {
      * @param fileExtension file extension
      * @return targetPath
      */
-    fun prepareTargetPath(genreDir: String?, newFileName: String, fileExtension: String): Path {
+    fun prepareTargetPath(genreDir: String, newFileName: String, fileExtension: String): Path {
         return Paths.get(genreDir, newFileName + fileExtension)
     }
 

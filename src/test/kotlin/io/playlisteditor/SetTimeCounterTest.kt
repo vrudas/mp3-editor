@@ -40,8 +40,7 @@ internal class SetTimeCounterTest {
     @Test
     fun testCalcSetTime() {
         val sum = tracks.map { it.extractTimes() }
-            .map { (start, end) -> secondsBetween(start, end) }
-            .sum()
+            .sumOf { (start, end) -> secondsBetween(start, end) }
 
         println("sum = $sum")
         println("duration = ${Duration.ofSeconds(sum)}")
