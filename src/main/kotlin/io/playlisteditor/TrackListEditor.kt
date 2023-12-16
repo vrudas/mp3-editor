@@ -14,7 +14,7 @@ class TrackListEditor {
         return trackList.split("\n")
             .drop(1)
             .map { it.split("\t") }
-            .map { Track(it[0].toByte(), it[1], it[2]) }
+            .map { (number, title, artist) -> Track(number.toByte(), title, artist) }
             .sortedBy { it.number }
     }
 
