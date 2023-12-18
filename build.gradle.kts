@@ -39,8 +39,10 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-sonarqube {
+sonar {
     properties {
         property("sonar.projectKey", "vrudas_mp3-editor")
+        property("sonar.organization", "vrudas")
+        property("sonar.host.url", "https://sonarcloud.io")
     }
 }
