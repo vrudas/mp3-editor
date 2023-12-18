@@ -39,6 +39,8 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-tasks.sonarqube {
-    setProperty("sonar.projectKey", "vrudas_mp3-editor")
+sonarqube {
+    properties {
+        property("sonar.projectKey", "vrudas_mp3-editor")
+    }
 }
