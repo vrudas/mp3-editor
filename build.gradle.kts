@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     id("com.github.johnrengelman.shadow")
+    id("org.sonarqube")
 }
 
 group = "io.mp3editor"
