@@ -38,3 +38,7 @@ tasks.wrapper {
     gradleVersion = "8.5-rc-4"
     distributionType = Wrapper.DistributionType.ALL
 }
+
+tasks.sonarqube {
+    setProperty("sonar.projectKey", "vrudas_mp3-editor")
+}
