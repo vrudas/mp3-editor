@@ -17,6 +17,12 @@ dependencyResolutionManagement {
     }
 
     repositoriesMode = RepositoriesMode.FAIL_ON_PROJECT_REPOS
+
+    versionCatalogs {
+        create("libs") {
+            version("junit", "5.10.1")
+        }
+    }
 }
 
 rootProject.name = "mp3-editor"
