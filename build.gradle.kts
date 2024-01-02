@@ -13,7 +13,7 @@ dependencies {
     implementation("org:jaudiotagger:2.0.3")
     implementation("ch.qos.logback:logback-classic:1.4.14")
 
-    testImplementation(platform("org.junit:junit-bom:${libs.versions.junit}"))
+    testImplementation(platform("org.junit:junit-bom:${libs.versions.junit.get()}"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.junit.jupiter:junit-jupiter-params")
 }
