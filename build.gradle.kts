@@ -10,8 +10,8 @@ version = "1.0.0-SNAPSHOT"
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    implementation("org:jaudiotagger:2.0.3")
-    implementation("ch.qos.logback:logback-classic:1.4.14")
+    implementation("org:jaudiotagger:${libs.versions.jaudiotagger.get()}")
+    implementation("ch.qos.logback:logback-classic:${libs.versions.logback.get()}")
 
     testImplementation(platform("org.junit:junit-bom:${libs.versions.junit.get()}"))
     testImplementation("org.junit.jupiter:junit-jupiter")

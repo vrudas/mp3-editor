@@ -21,6 +21,8 @@ dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
             version("junit", "5.10.1")
+            version("logback", "1.4.14")
+            version("jaudiotagger", "2.0.3")
         }
     }
 }
