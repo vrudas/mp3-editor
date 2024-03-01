@@ -11,7 +11,7 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import kotlin.io.path.extension
 
-class MP3EditorV2 {
+class MP3Editor {
 
     companion object {
         const val FILE_EXTENSION: String = ".mp3"
@@ -129,12 +129,12 @@ class MP3EditorV2 {
 
 fun main() {
     val directory = Paths.get(".")
-    val mp3EditorV2 = MP3EditorV2()
+    val mp3Editor = MP3Editor()
 
     val trackDirectoryVisitor = TrackDirectoryVisitor()
     Files.walkFileTree(directory, trackDirectoryVisitor)
 
     val directoriesToFiles = trackDirectoryVisitor.dirToFiles
 
-    mp3EditorV2.editFiles(directoriesToFiles, directory)
+    mp3Editor.editFiles(directoriesToFiles, directory)
 }

@@ -7,11 +7,11 @@ import java.nio.file.Paths
 
 class MP3EditorTest {
     // TODO: 4/18/2016 IMPLEMENT TESTS
-    private lateinit var editor: MP3EditorV2
+    private lateinit var editor: MP3Editor
 
     @BeforeEach
     fun init() {
-        editor = MP3EditorV2()
+        editor = MP3Editor()
     }
 
     @Test
