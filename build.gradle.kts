@@ -35,7 +35,7 @@ tasks.shadowJar {
 }
 
 tasks.wrapper {
-    gradleVersion = "8.6-rc-1"
+    gradleVersion = "8.6"
     distributionType = Wrapper.DistributionType.ALL
 }
 
