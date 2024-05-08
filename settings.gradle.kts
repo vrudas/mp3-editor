@@ -4,7 +4,7 @@ pluginManagement {
     }
 
     plugins {
-        kotlin("jvm") version "1.9.23"
+        kotlin("jvm") version "1.9.24"
         id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
         id("com.github.johnrengelman.shadow") version "8.1.1"
         id("org.sonarqube") version "4.4.1.3373"
